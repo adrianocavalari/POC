@@ -1,20 +1,5 @@
-﻿using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Collections;
-using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Serialization;
-using System.Text.RegularExpressions;
-using System.Text;
-using System;
-
-class Solution
+﻿class Solution
 {
-
     class SinglyLinkedListNode
     {
         public int data;
@@ -23,7 +8,7 @@ class Solution
         public SinglyLinkedListNode(int nodeData)
         {
             this.data = nodeData;
-            this.next = null;
+            this.next = null!;
         }
     }
 
@@ -34,8 +19,8 @@ class Solution
 
         public SinglyLinkedList()
         {
-            this.head = null;
-            this.tail = null;
+            this.head = null!;
+            this.tail = null!;
         }
 
         public void InsertNode(int nodeData)

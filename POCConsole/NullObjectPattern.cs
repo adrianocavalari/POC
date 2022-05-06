@@ -67,7 +67,7 @@ namespace POCConsole
     public class Customer
     {
         public static Customer NotFound = new Customer() { FirstName = String.Empty, LastName = String.Empty };
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace POCConsole
+﻿namespace POCConsole
 {
     internal class NullsBreakPolymorphism
     {
@@ -48,11 +42,13 @@ namespace POCConsole
                 DateHired = new DateTime(2015, 6, 1),
                 DateTerminated = new DateTime(2015, 7, 1)
             });
+#pragma warning disable CS8604 // Possible null reference argument.
             employees.Add(GetEmployee());
+#pragma warning restore CS8604 // Possible null reference argument.
             return employees;
         }
 
-        private static Employee GetEmployee()
+        private static Employee? GetEmployee()
         {
             return null;
         }
@@ -60,8 +56,8 @@ namespace POCConsole
 
     public class Employee
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
         public DateTime DateHired { get; set; }
         public DateTime? DateTerminated { get; set; }
 
