@@ -1,5 +1,29 @@
 ﻿class Solution
 {
+    public static void Exec()
+    {
+        int tests = 1;
+
+        for (int testsItr = 0; testsItr < tests; testsItr++)
+        {
+            SinglyLinkedList llist1 = new SinglyLinkedList();
+
+
+            llist1.InsertNode(1);
+            llist1.InsertNode(2);
+            llist1.InsertNode(3);
+
+            SinglyLinkedList llist2 = new SinglyLinkedList();
+
+            llist2.InsertNode(3);
+            llist2.InsertNode(4);
+
+            SinglyLinkedListNode llist3 = mergeLists(llist1.head, llist2.head);
+
+            PrintSinglyLinkedList(llist3, " ");
+        }
+    }
+
     class SinglyLinkedListNode
     {
         public int data;
@@ -85,29 +109,5 @@
 
         next1.next = mergeLists(next1, next2);
         return next1;
-    }
-
-    public static void Main(string[] args)
-    {
-        int tests = 1;
-
-        for (int testsItr = 0; testsItr < tests; testsItr++)
-        {
-            SinglyLinkedList llist1 = new SinglyLinkedList();
-
-
-            llist1.InsertNode(1);
-            llist1.InsertNode(2);
-            llist1.InsertNode(3);
-
-            SinglyLinkedList llist2 = new SinglyLinkedList();
-
-            llist2.InsertNode(3);
-            llist2.InsertNode(4);
-
-            SinglyLinkedListNode llist3 = mergeLists(llist1.head, llist2.head);
-
-            PrintSinglyLinkedList(llist3, " ");
-        }
     }
 }

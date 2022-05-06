@@ -10,7 +10,9 @@
 
     public static int flippingMatrix(List<List<int>> matrix)
     {
+#pragma warning disable CS0219 // Variable is assigned but its value is never used
         int sum = 0;
+#pragma warning restore CS0219 // Variable is assigned but its value is never used
         int total = matrix.Count;
 
         return matrix.SelectMany(s => s).OrderByDescending(o => o).Take(4).Sum();
@@ -21,7 +23,7 @@
 
 class FlippingMatrixSolution
 {
-    public static void Main(string[] args)
+    public static void Exec()
     {
         List<List<int>> matrix = new List<List<int>>();
 
