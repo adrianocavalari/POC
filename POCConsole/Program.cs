@@ -14,4 +14,4 @@ Console.WriteLine("Init...");
 //var summary = BenchmarkRunner.Run<PerformanceTest>();
 //Console.WriteLine(summary);
 
-CleanArchitecture.Exec2();
+NullsBreakPolymorphism.ExecuteRight();

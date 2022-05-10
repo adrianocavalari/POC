@@ -9,7 +9,7 @@
             foreach (var employee in employees)
             {
                 Console.WriteLine("{0} {1}: {2} days", employee.FirstName,
-            employee.LastName, employee.TenureInDays());
+            employee.LastName, employee.DateTerminatedInDays());
             }
             Console.ReadLine();
         }
@@ -61,7 +61,7 @@
         public DateTime DateHired { get; set; }
         public DateTime? DateTerminated { get; set; }
 
-        public int TenureInDays(DateTime? currentDate = null)
+        public int DateTerminatedInDays(DateTime? currentDate = null)
         {
             DateTime endDate = currentDate ?? DateTime.Now;
             if (DateTerminated.HasValue)
@@ -78,8 +78,8 @@
         {
             if (employee != null)
             {
-                return String.Format("{0} {1}: {2} days", employee.FirstName,
-            employee.LastName, employee.TenureInDays());
+                return string.Format("{0} {1}: {2} days", employee.FirstName,
+            employee.LastName, employee.DateTerminatedInDays());
             }
             return "Unknown employee";
         }
