@@ -1,20 +1,4 @@
-﻿using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Collections;
-using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Serialization;
-using System.Text.RegularExpressions;
-using System.Text;
-using System;
-
-
-
-class FlippingMatrix
+﻿class FlippingMatrix
 {
 
     /*
@@ -26,7 +10,9 @@ class FlippingMatrix
 
     public static int flippingMatrix(List<List<int>> matrix)
     {
+#pragma warning disable CS0219 // Variable is assigned but its value is never used
         int sum = 0;
+#pragma warning restore CS0219 // Variable is assigned but its value is never used
         int total = matrix.Count;
 
         return matrix.SelectMany(s => s).OrderByDescending(o => o).Take(4).Sum();
@@ -37,7 +23,7 @@ class FlippingMatrix
 
 class FlippingMatrixSolution
 {
-    public static void Main(string[] args)
+    public static void Exec()
     {
         List<List<int>> matrix = new List<List<int>>();
 

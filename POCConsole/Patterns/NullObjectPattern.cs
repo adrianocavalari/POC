@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace POCConsole
+﻿namespace POCConsole
 {
     internal static class NullObjectPattern
     {
@@ -38,7 +32,9 @@ namespace POCConsole
 
             foreach (var employee in employees)
             {
+#pragma warning disable CS8604 // Possible null reference argument.
                 GetByFirstName(employee.FirstName);
+#pragma warning restore CS8604 // Possible null reference argument.
             }
 
             Console.ReadLine();
@@ -67,7 +63,7 @@ namespace POCConsole
     public class Customer
     {
         public static Customer NotFound = new Customer() { FirstName = String.Empty, LastName = String.Empty };
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
     }
 }

@@ -33,9 +33,9 @@ public static class Log
     public delegate void MessageLogger(string message);
     public static Logger? Instance { get; set; }
 
-    public static MessageLogger MessageDelegate { get; set; }
+    public static MessageLogger? MessageDelegate { get; set; }
 
-    public static Action<string> MessageAction { get; set; }
+    public static Action<string>? MessageAction { get; set; }
 
     public static void Message(string message) { Instance?.Message(message); }
 }

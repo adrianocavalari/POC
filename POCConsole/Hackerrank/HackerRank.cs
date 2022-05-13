@@ -1,19 +1,28 @@
-﻿using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Collections;
-using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Serialization;
-using System.Text.RegularExpressions;
-using System.Text;
-using System;
-
-class Solution
+﻿class Solution
 {
+    public static void Exec()
+    {
+        int tests = 1;
+
+        for (int testsItr = 0; testsItr < tests; testsItr++)
+        {
+            SinglyLinkedList llist1 = new SinglyLinkedList();
+
+
+            llist1.InsertNode(1);
+            llist1.InsertNode(2);
+            llist1.InsertNode(3);
+
+            SinglyLinkedList llist2 = new SinglyLinkedList();
+
+            llist2.InsertNode(3);
+            llist2.InsertNode(4);
+
+            SinglyLinkedListNode llist3 = mergeLists(llist1.head, llist2.head);
+
+            PrintSinglyLinkedList(llist3, " ");
+        }
+    }
 
     class SinglyLinkedListNode
     {
@@ -23,7 +32,7 @@ class Solution
         public SinglyLinkedListNode(int nodeData)
         {
             this.data = nodeData;
-            this.next = null;
+            this.next = null!;
         }
     }
 
@@ -34,8 +43,8 @@ class Solution
 
         public SinglyLinkedList()
         {
-            this.head = null;
-            this.tail = null;
+            this.head = null!;
+            this.tail = null!;
         }
 
         public void InsertNode(int nodeData)
@@ -100,29 +109,5 @@ class Solution
 
         next1.next = mergeLists(next1, next2);
         return next1;
-    }
-
-    public static void Main(string[] args)
-    {
-        int tests = 1;
-
-        for (int testsItr = 0; testsItr < tests; testsItr++)
-        {
-            SinglyLinkedList llist1 = new SinglyLinkedList();
-
-
-            llist1.InsertNode(1);
-            llist1.InsertNode(2);
-            llist1.InsertNode(3);
-
-            SinglyLinkedList llist2 = new SinglyLinkedList();
-
-            llist2.InsertNode(3);
-            llist2.InsertNode(4);
-
-            SinglyLinkedListNode llist3 = mergeLists(llist1.head, llist2.head);
-
-            PrintSinglyLinkedList(llist3, " ");
-        }
     }
 }

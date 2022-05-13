@@ -8,7 +8,10 @@ Console.WriteLine("Init...");
 
 //StaticTestsExec.Exec();
 
-/*await new AsyncTests().Exec()*/;
+//await new AsyncTests().Exec();
+//await new AsyncTests2().ExecTaskWhenAllExceptionsClass();
 
 //var summary = BenchmarkRunner.Run<PerformanceTest>();
 //Console.WriteLine(summary);
+
+NullsBreakPolymorphism.ExecuteRight();
