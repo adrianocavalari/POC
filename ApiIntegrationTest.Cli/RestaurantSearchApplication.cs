@@ -25,12 +25,27 @@ namespace ApiIntegrationTest.Cli
                 {
                     var request = new RestaurantSearchRequest(o.Outcode);
                     var result = await _restaurantSearchService.SearchByOutcodeAsync(request);
-                    var responseText = JsonSerializer.Serialize(result, new JsonSerializerOptions
+
+                    result.Switch(res =>
                     {
-                        WriteIndented = true,
+                        var testResult = JsonSerializer.Serialize(res, new JsonSerializerOptions
+                        {
+                            WriteIndented = true,
+                        });
+                        _consoleWritter.WriteLine(testResult);
+                    },
+                    error =>
+                    {
+                        var testResult = string.Join(", ", error.ErrorMessages);
+                        _consoleWritter.WriteLine(testResult);
                     });
 
-                    _consoleWritter.WriteLine(responseText);
+                    //var responseText = JsonSerializer.Serialize(result, new JsonSerializerOptions
+                    //{
+                    //    WriteIndented = true,
+                    //});
+
+                    //_consoleWritter.WriteLine(responseText);
                 });
         }
     }

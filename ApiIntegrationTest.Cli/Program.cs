@@ -5,6 +5,9 @@ using ApiIntegrationTest.Cli.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Refit;
+using FluentValidation;
+using ApiIntegrationTest.Cli.Validators;
+using ApiIntegrationTest.Cli.Models;
 
 var configuration = BuildConfiguration();
 
@@ -12,7 +15,7 @@ var services = BuildServiceProvider(configuration);
 
 var app = services.GetRequiredService<RestaurantSearchApplication>();
 
-await app.RunAsync(new[] { "E2" });
+await app.RunAsync(args);
 
 static IConfigurationRoot BuildConfiguration()
 {
@@ -33,6 +36,7 @@ static IHttpClientBuilder ConfigureServices(IConfigurationRoot configuration, Se
     services.AddSingleton<RestaurantSearchApplication>();
     services.AddSingleton<IConsoleWritter, ConsoleWritter>();
     services.AddSingleton<IRestaurantSearchService, RestaurantSearchService>();
+    services.AddScoped<IValidator<RestaurantSearchRequest>, RestaurantSearchRequestValdiator>();
 
     return services.AddRefitClient<IRestaurantApi>()
             .ConfigureHttpClient(c =>
