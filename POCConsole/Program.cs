@@ -1,6 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using BenchmarkDotNet.Running;
 using POCConsole;
+using POCConsole.Array;
+using POCConsole.Inter;
 
 Console.WriteLine("Init...");
 //NullObjectPattern.ExecuteBad();
@@ -14,4 +16,12 @@ Console.WriteLine("Init...");
 //var summary = BenchmarkRunner.Run<PerformanceTest>();
 //Console.WriteLine(summary);
 
-NullsBreakPolymorphism.ExecuteRight();
+//NullsBreakPolymorphism.ExecuteRight();
+
+//BinarySearch.Exec();
+
+//TwoPointers.Exec();
+
+//Subsets.Exec();
+
+BFS.Exec();
