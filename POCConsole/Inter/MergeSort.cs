@@ -1,4 +1,4 @@
-﻿namespace POCConsole
+﻿namespace POCConsole.Inter
 {
     public class SolutionMergeSort
     {
@@ -33,7 +33,7 @@
             {
                 if (i < left.Length && j < right.Length)
                 {
-                    if(left[i] < right[j])
+                    if (left[i] < right[j])
                     {
                         res[resCount] = left[i];
                         i++;
