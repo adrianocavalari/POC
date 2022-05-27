@@ -1,6 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using BenchmarkDotNet.Running;
 using POCConsole;
+using POCConsole.Array;
+using POCConsole.Inter;
 
 Console.WriteLine("Init...");
 //NullObjectPattern.ExecuteBad();
@@ -14,6 +16,15 @@ Console.WriteLine("Init...");
 //var summary = BenchmarkRunner.Run<PerformanceTest>();
 //Console.WriteLine(summary);
 
+//NullsBreakPolymorphism.ExecuteRight();
+
+//BinarySearch.Exec();
+
+//TwoPointers.Exec();
+
+//Subsets.Exec();
+
+//BFS.Exec();
 //NullsBreakPolymorphism.ExecuteRight();
 
 //var tree = new GFG().buildTree("10 5 18 2 9 15 19 N 4 8 N 1");

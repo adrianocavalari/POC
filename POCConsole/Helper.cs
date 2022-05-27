@@ -25,4 +25,11 @@
         Console.WriteLine(result);
         return result;
     }
+
+    internal static void Swap(this int[] nums, int i, int j)
+    {
+        var temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
 }
