@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlowProject1", "SpecFlo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiIntegrationTest.Cli", "ApiIntegrationTest.Cli\ApiIntegrationTest.Cli.csproj", "{F41A00A2-BCF5-4D46-876B-A55B7AD68E73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcService1", "GrpcService1\GrpcService1.csproj", "{6E3EFA59-BD02-48F8-B2E7-B9109D8F1B68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrpcService1", "GrpcService1\GrpcService1.csproj", "{6E3EFA59-BD02-48F8-B2E7-B9109D8F1B68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grpc.ClientTest", "Grpc.ClientTest\Grpc.ClientTest.csproj", "{F639B3FC-156C-4959-AFD8-57679DDD0771}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6E3EFA59-BD02-48F8-B2E7-B9109D8F1B68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E3EFA59-BD02-48F8-B2E7-B9109D8F1B68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E3EFA59-BD02-48F8-B2E7-B9109D8F1B68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F639B3FC-156C-4959-AFD8-57679DDD0771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F639B3FC-156C-4959-AFD8-57679DDD0771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F639B3FC-156C-4959-AFD8-57679DDD0771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F639B3FC-156C-4959-AFD8-57679DDD0771}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
