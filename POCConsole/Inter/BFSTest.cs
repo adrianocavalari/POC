@@ -2,7 +2,7 @@
 {
     //https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1/#
 
-    public class BFS
+    public class BFSTest
     {
         public static void Exec()
         {
@@ -23,7 +23,7 @@
             while (queue.Count != 0)
             {
                 int n = queue.Dequeue();
-                slist.Add(n);
+                list.Add(n);
 
                 foreach (var i in adj[n])
                 {
@@ -77,7 +77,7 @@
             //    int v = int.Parse(ip[1]);
             //    adj[u].Add(v);
             //}
-            var obj = new BFS();
+            var obj = new BFSTest();
             var res = obj.bfsOfGraph(V, adj);
             foreach (int i in res) { Console.Write(i + " "); }
             Console.WriteLine();
