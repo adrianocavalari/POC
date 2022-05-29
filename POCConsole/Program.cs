@@ -60,6 +60,9 @@ Console.WriteLine("Init...");
 
 #endregion
 
+#region Find in array
+TestCode.Exec();
+#endregion
 
 #region LinkedList
 //ReverseLinkedList.Exec();
@@ -70,7 +73,7 @@ Console.WriteLine("Init...");
 #endregion
 
 #region Queue
-MyQueue.Exec();
+//MyQueue.Exec();
 #endregion
 
 Console.Read();
