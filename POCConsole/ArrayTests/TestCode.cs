@@ -1,6 +1,6 @@
 ﻿using Shouldly;
 
-namespace POCConsole.Array
+namespace POCConsole.ArrayTests
 {
     public class TestCode
     {
