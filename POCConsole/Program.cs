@@ -58,10 +58,11 @@ Console.WriteLine("Init...");
 
 //numbers.Print();
 
+MSTest.Exec();
 #endregion
 
 #region Find in array
-TestCode.Exec();
+//TestCode.Exec();
 #endregion
 
 #region LinkedList

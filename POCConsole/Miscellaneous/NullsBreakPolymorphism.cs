@@ -1,4 +1,4 @@
-﻿namespace POCConsole
+﻿namespace POCConsole.Miscellaneous
 {
     internal class NullsBreakPolymorphism
     {

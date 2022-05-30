@@ -85,7 +85,6 @@
             for (var at = adj[8][0]; at != null; at = res[at-1])
             {
                 path.Add(at);
-                at = 
             }
 
             foreach (int i in res) { Console.Write(i + " "); }

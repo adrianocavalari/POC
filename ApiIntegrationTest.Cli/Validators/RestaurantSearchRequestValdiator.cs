@@ -9,7 +9,7 @@ namespace ApiIntegrationTest.Cli.Validators
         {
             RuleFor(request => request.Outcome)
                 .Matches("^([A-Za-z][0-9]{1,2})$")
-                .WithMessage("Please provide conrrect postcode");
+                .WithMessage("Please provide correct postcode");
         }
     }
 }
