@@ -24,14 +24,14 @@ Console.WriteLine("Init...");
 
 //Subsets.Exec();
 
-//BFS.Exec();
+BFS.Exec();
 //NullsBreakPolymorphism.ExecuteRight();
 
 //var tree = new GFG().buildTree("10 5 18 2 9 15 19 N 4 8 N 1");
 
 //Console.WriteLine(new SolutionBST().isBST(tree));
 
-new SolutionMergeSort().Exec();
+//SolutionMergeSort.Exec();
 
 
 

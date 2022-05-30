@@ -3,12 +3,12 @@
     public class SolutionMergeSort
     {
         //Function to check whether a Binary Tree is BST or not.
-        public void Exec()
+        public static void Exec()
         {
             Console.WriteLine(string.Join(", ", MergeSort(new[] { 38, 27, 43, 3, 9, 82, 10 })));
         }
 
-        public int[] MergeSort(int[] array)
+        public static int[] MergeSort(int[] array)
         {
             var n = array.Length;
             if (n < 2)
@@ -22,7 +22,7 @@
             return Merge(left, right);
         }
 
-        public int[] Merge(int[] left, int[] right)
+        public static int[] Merge(int[] left, int[] right)
         {
             var res = new int[left.Length + right.Length];
             var resCount = 0;
