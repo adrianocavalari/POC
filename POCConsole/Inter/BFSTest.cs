@@ -2,7 +2,7 @@
 {
     //https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1/#
 
-    public class BFS
+    public class BFSTest
     {
         public static void Exec()
         {
@@ -77,7 +77,7 @@
             //    int v = int.Parse(ip[1]);
             //    adj[u].Add(v);
             //}
-            var obj = new BFS();
+            var obj = new BFSTest();
             var res = obj.bfsOfGraph(V, adj);
 
             var path = new List<int>();

@@ -1,10 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using BenchmarkDotNet.Running;
 using POCConsole;
-using POCConsole.Array;
+using POCConsole.ArrayTests;
 using POCConsole.Inter;
+using POCConsole.Inter.BreadthFirstSearch;
 
 Console.WriteLine("Init...");
+
+#region Algorithms
 //NullObjectPattern.ExecuteBad();
 //NullObjectPattern.ExecuteRight();
 
@@ -24,21 +27,53 @@ Console.WriteLine("Init...");
 
 //Subsets.Exec();
 
-BFS.Exec();
+//BFSTest.Exec();
+
+//AirportRoute.Exec();
+
+//BFS.Exec();
 //NullsBreakPolymorphism.ExecuteRight();
 
 //var tree = new GFG().buildTree("10 5 18 2 9 15 19 N 4 8 N 1");
 
 //Console.WriteLine(new SolutionBST().isBST(tree));
 
-//SolutionMergeSort.Exec();
+//new SolutionMergeSort().Exec();
 
 
+#endregion
+
+#region Arrays
+//var numbers = new POCConsole.Array.Array(3);
+
+//numbers.Insert(10);
+//numbers.Insert(20);
+//numbers.Insert(30);
+//numbers.Insert(40);
+
+//numbers.RemoveAt(2);
+
+//Console.WriteLine(numbers.IndexOf(40));
 
 
+//numbers.Print();
 
+#endregion
 
+#region Find in array
+TestCode.Exec();
+#endregion
 
+#region LinkedList
+//ReverseLinkedList.Exec();
+#endregion
 
+#region Stack
+//StackTests.Exec();
+#endregion
 
-Console.ReadLine();
+#region Queue
+//MyQueue.Exec();
+#endregion
+
+Console.Read();
