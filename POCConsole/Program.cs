@@ -58,7 +58,7 @@ Console.WriteLine("Init...");
 
 //numbers.Print();
 
-MSTest.Exec();
+//MSTest.Exec();
 #endregion
 
 #region Find in array
@@ -75,6 +75,10 @@ MSTest.Exec();
 
 #region Queue
 //MyQueue.Exec();
+#endregion
+
+#region SlidingWindow
+SlidingWindow.Exec();
 #endregion
 
 Console.Read();
