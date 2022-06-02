@@ -2,6 +2,7 @@
 using BenchmarkDotNet.Running;
 using POCConsole;
 using POCConsole.ArrayTests;
+using POCConsole.Course.MCI;
 using POCConsole.Inter;
 using POCConsole.Inter.BreadthFirstSearch;
 
@@ -59,6 +60,19 @@ Console.WriteLine("Init...");
 //numbers.Print();
 
 //MSTest.Exec();
+AliceAndBobApple.Exec();
+#endregion
+
+#region Course
+#region MCI
+//ContainsCommonItem.Exec();
+
+//BubbleSort.Exec();
+//SelectionSort.Exec();
+//InsertionSort.Exec();
+//MergeSort.Exec();
+//QuickSort.Exec();
+#endregion
 #endregion
 
 #region Find in array
@@ -78,7 +92,7 @@ Console.WriteLine("Init...");
 #endregion
 
 #region SlidingWindow
-SlidingWindow.Exec();
+//SlidingWindow.Exec();
 #endregion
 
 Console.Read();
