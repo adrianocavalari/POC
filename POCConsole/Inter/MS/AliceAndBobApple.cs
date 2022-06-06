@@ -8,9 +8,18 @@ namespace POCConsole.Inter
     {
         public static void Exec()
         {
-            //int sum = solution(new[] { 6, 1, 4, 6, 3, 2, 7, 4 }, 3, 2);
-            //Console.WriteLine(sum);
-            //sum.ShouldBe(24);
+            solution(new[] { 6, 1, 4, 6, 3, 2, 7, 4 }, 3, 2)
+                .Dump()
+            .ShouldBe(24);
+
+            solution(new[] { 15, 35, 6, 1, 4, 6, 3, 2, 7, 4, 20, 30, 50 }, 3, 2)
+                .Dump()
+            .ShouldBe(150);
+
+            solution(new[] { 6, 1, 15, 35, 4, 4, 20, 30, 50, 6, 3, 2, 7 }, 5, 4)
+                .Dump();
+            //.ShouldBe(150);
+
             //int sum2 = solution(new[] { 10, 19, 15 }, 2, 2);
             //Console.WriteLine(sum2);
             //sum2.ShouldBe(-1);
@@ -39,8 +48,8 @@ namespace POCConsole.Inter
             //Console.WriteLine(sum8);
             //sum8.ShouldBe(20);
 
-            solution(new[] { 3, 2, 1, 4, 5, 6 }, 3, 2)
-                .Dump();
+            //solution(new[] { 3, 2, 1, 4, 5, 6 }, 3, 2)
+            //    .Dump();
             //.ShouldBe(20);
         }
 
@@ -57,7 +66,7 @@ namespace POCConsole.Inter
 
             //return PickApples4(A, K, L);
 
-            return PickApples5(A, K, L);
+            return Find3(A, K, L);
         }
 
         static int FindMy(int[] A, int K, int L)
@@ -245,7 +254,7 @@ namespace POCConsole.Inter
 		///	
 		///	Interval sum first thought prefix sum fast solution
 		///	Because they do not interfere with each other, consider the partition and divide it into two parts: left and right
-		///	Because the intervals of L and K are continuous, each split point is enumerated by right shifting, and divided into two parts [i-L:i] and [i:i L].
+		///	Because the intervals of L and K are continuous, each split point is enumerated by right shifting, and divided into two parts [i-L:i] and [i:i+L].
 		///	max(max(left window sum) current right window sum) is the result
 		///	Special Considerations:
 		///	
@@ -271,60 +280,31 @@ namespace POCConsole.Inter
 
             prefix_sum.DumpList();
 
-            var ret = -1;
-            var max_left = 0;
+            return Math.Max(SumLeftRight(prefix_sum, K, L), SumLeftRight(prefix_sum, L, K));
+        }
 
-            /* K = 3
-             * i = 3             i < n - L    == i < 7 - 2       == i < 5
-             * i = 4             i < n - L    == i < 7 - 2       == i < 5
-             */
+        static int SumLeftRight(int[] prefix_sum, int L, int K)
+        {
+            var rightSum = -1;
+            var leftSum = 0;
 
-            (n - L).Dump($"K n - L: ");
-
-            for (int i = K; i < n - L; i++)
+            for (int i = L; i < prefix_sum.Length - K; i++) // From 2 to 3
             {
-                i.Dump($"K i: ");
-                /* 6
-                * 10
-                */
-                var current = prefix_sum[i];
-                current.Dump($"K current: ");
-                /* max_left == 0     -      current - prefix_sum[i - K]             ==  6 - 0
-                 *                                                i + L ==  3+2     =  index = 5 (value 15)
-                 * ret == -1         -      max_left + prefix_sum[i + L] - current  ==  6 + 15 - 6 = 15
-                 * ret = 15
-                 * 
-                 * max_left == 6     -      current - prefix_sum[i - K]             ==  10 - 3
-                 *                                                i + L  ==  4+2    =  index = 6 (value 21)
-                 * ret == -1         -      max_left + prefix_sum[i + L] - current  ==  7 + 21 - 10 = 18
-                 * ret = 18
-                 * 
-                 */
-                max_left = Math.Max(max_left, current - prefix_sum[i - K]);
-                max_left.Dump($"K max_left: ");
-
-                ret = Math.Max(ret, max_left + prefix_sum[i + L] - current);
-                ret.Dump($"K ret: ");
-            }
-
-            max_left = 0;
-            (n - K).Dump($"L n - K: ");
-
-            for (int i = L; i < n - K; i++)
-            {
-                i.Dump($"L i: ");
+                i.Dump($"i: ");
 
                 var current = prefix_sum[i];
-                current.Dump($"L current: ");
+                //current.Dump($"L current: ");
 
-                max_left = Math.Max(max_left, current - prefix_sum[i - L]);
-                max_left.Dump($"L max_left: ");
+                $" {current} - {prefix_sum[i - L]} = {current - prefix_sum[i - L]}".Dump();
+                leftSum = Math.Max(leftSum, current - prefix_sum[i - L]);
+                //leftSum.Dump($"L leftSum: ");
 
-                ret = Math.Max(ret, max_left + prefix_sum[i + K] - current);
-                ret.Dump($"L ret: ");
+                $" {leftSum} + {prefix_sum[i + K]} - {current} = {leftSum + prefix_sum[i + K] - current}".Dump();
+                rightSum = Math.Max(rightSum, leftSum + prefix_sum[i + K] - current);
+                //rightSum.Dump($"L rightSum: ");
             }
 
-            return ret;
+            return rightSum;
         }
 
         static int PickApples4(int[] A, int K, int L)

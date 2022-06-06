@@ -2,7 +2,9 @@
 using BenchmarkDotNet.Running;
 using POCConsole;
 using POCConsole.ArrayTests;
+using POCConsole.Course.DSA;
 using POCConsole.Course.MCI;
+using POCConsole.GarbageCollector;
 using POCConsole.Inter;
 using POCConsole.Inter.BreadthFirstSearch;
 
@@ -60,7 +62,7 @@ Console.WriteLine("Init...");
 //numbers.Print();
 
 //MSTest.Exec();
-AliceAndBobApple.Exec();
+//AliceAndBobApple.Exec();
 #endregion
 
 #region Course
@@ -72,6 +74,16 @@ AliceAndBobApple.Exec();
 //InsertionSort.Exec();
 //MergeSort.Exec();
 //QuickSort.Exec();
+
+//FibonacciWithCache.Exec();
+
+//Graph.Exec();
+
+#endregion
+#region DSA
+//AvlTree.Exec();
+//Heap.Exec();
+
 #endregion
 #endregion
 
@@ -91,8 +103,13 @@ AliceAndBobApple.Exec();
 //MyQueue.Exec();
 #endregion
 
+#region GarbageCollector
+GarbageCollectorCPF.Exec();
+#endregion
+
 #region SlidingWindow
 //SlidingWindow.Exec();
 #endregion
+
 
 Console.Read();
