@@ -2,189 +2,94 @@
 
 namespace POCConsole.Inter
 {
+    /*
+        You have just rolled a dice several times. The N roll results that you remember are described by an array A. 
+            However, there are Frolls whose results you have forgotten. The arithmetic mean of all of the roll results (the sum of all the roll results divided by the number of rolls) equals M.
 
-    public class MSTest
+        What are the possible results of the missing rolls?
+
+        Write a function:
+
+        class Solution (public int[] solution(int[] A, Int F, int H); }
+
+        that, given an array A of length N, an integer F and an integer M, retums an array containing possible results of the missed rolls. 
+            The returned array should contain F integers from 1 to 6 (valid dice rolls). If such an array does not exist then the function should return (0)
+
+        Examples:
+
+        1. Given A = [3, 2, 4, 3], F= 2, M = 4, your function should return (6, 6]. The arithmetic mean of all the rolls is (3+2+4+3+6 +6)/6=24/6=4.
+
+        2. Given A = [1,5,6], F = 4, M = 3, your function may return [2, 1, 2, 4] or [6, 1, 1, 1] (among others). 3. Given A = [1, 2, 3, 4], F=4, M=6, your function should retum [0]. 
+            It is not possible to obtain such a mean.
+
+        4. Given A = [6, 1], F=1, M = 1, your function should return [0]. It is not possible to obtain such a mean.
+
+        Write an efficient algorithm for the following assumptions:
+
+        N and F are integers within the range (1.100,000); each element of array A is an integer within the range [1.6 Mis an integer within the range [1..6).
+
+        Remember, all submissions are being checked for plagiarism. Your recruiter will be informed in case suspicious activity is
+
+        detected. Copyright 2000-2022 by Codility Limited. All Rights Reserved. Unauthorized onpying, publication or disclosure
+
+     */
+    public class MissingRolls
     {
         public static void Exec()
         {
-            var res = Test("babaa");
-            res.ShouldBe(3);
+            Solution(new int[] { 3, 2, 4, 3 }, 2, 4).DumpList(); // 6,6
 
-            var res2 = Test("bbbab");
-            res2.ShouldBe(4);
+            Solution(new int[] { 1, 5, 6 }, 4, 3).DumpList(); // 2,1,2,4 or 6,1,1,1
 
-            var res3 = Test("bbbaaabbb");
-            res3.ShouldBe(0);
+            Solution(new int[] { 1, 2, 3, 4 }, 4, 6).DumpList(); // 0
 
-            var res4 = Test("abbbb");
-            res4.ShouldBe(3);
-
-            var res5 = Test("abbabbbaaaa");
-            res5.ShouldBe(9);
+            Solution(new int[] { 6, 1 }, 1, 1).DumpList(); // 0
         }
 
-        static int Test(string S)
+        public static int[] Solution(int[] A, int F, int M)
         {
-            var total = GetTotalEquals(S);
+            int rolled = A.Length + F;
+            int totalSum = rolled * M;
 
-            return SumSmaller(S, total);
+            int remaining = totalSum - GetTotal(A);
+            int max = F * 6;
+
+            if (remaining > max || remaining < 1)
+                return new int[] { 0 };
+
+            return GetResult(remaining);
         }
 
-        static int GetTotalEquals(string S)
+        private static int[] GetResult(int remaining)
         {
-            var count = 1;
-            var total = 1;
-            for (int i = 1; i < S.Length; i++)
+            var result = new List<int>();
+            while (remaining > 0)
             {
-                if (S[i] == S[i - 1])
+                if (remaining >= 6)
                 {
-                    count++;
+                    result.Add(6);
+                    remaining -= 6;
                 }
                 else
                 {
-                    total = Math.Max(total, count);
-                    count = 1;
+                    result.Add(1);
+                    remaining--;
                 }
             }
 
-            return Math.Max(total, count);
+            return result.ToArray();
         }
 
-        static int SumSmaller(string S, int total)
+        private static int GetTotal(int[] A)
         {
-            var count = 1;
-            int totalSmaller = 0;
-            for (int i = 1; i < S.Length; i++)
+            int diceSum = 0;
+            foreach (int sum in A)
             {
-                if (S[i] == S[i - 1])
-                {
-                    count++;
-                }
-                else
-                {
-                    totalSmaller = totalSmaller + total - count;
-                    count = 1;
-                }
+                diceSum += sum;
             }
-            return totalSmaller + total - count;
+
+            return diceSum;
         }
-
-        ////static int Test(string S)
-        ////{
-        ////    int maxcount = 1;
-        ////    int count = 1;
-        ////    for (int i = 1; i < S.Length; i++)
-        ////    {
-        ////        if (S[i] != S[i - 1])
-        ////        {
-        ////            maxcount = Math.Max(maxcount, count);
-        ////            count = 1;
-        ////        }
-        ////        else
-        ////        {
-        ////            count++;
-        ////        }
-        ////    }
-
-        ////    maxcount = Math.Max(maxcount, count);
-        ////    count = 1;
-        ////    int res = 0;
-        ////    for (int i = 1; i < S.Length; i++)
-        ////    {
-        ////        if (S[i] != S[i - 1])
-        ////        {
-        ////            res = res + maxcount - count;
-        ////            count = 1;
-        ////        }
-        ////        else
-        ////        {
-        ////            count++;
-        ////        }
-        ////    }
-        ////    res = res + maxcount - count;
-        ////    return res;
-        ////}
-
-
-        #region Second
-        //static void Main(string[] args)
-        //{
-        //    var res = Test("babaa");
-        //    res.ShouldBe(3);
-
-        //    var res2 = Test("bbbab");
-        //    res2.ShouldBe(4);
-
-        //    var res3 = Test("bbbaaabbb");
-        //    res3.ShouldBe(0);
-
-        //    var res4 = Test("abbbb");
-        //    res4.ShouldBe(3);
-
-        //    var res5 = Test("abbabbbaaaa");
-        //    res5.ShouldBe(9);
-
-        //    var result = solution(new int[] { 3, 2, 4, 3 }, 2, 4); // 6,6
-        //    foreach (int res in result)
-        //        Console.Write(res + " ");
-
-        //    var result1 = solution(new int[] { 1, 5, 6 }, 4, 3); // 2,1,2,4 or 6,1,1,1
-        //    foreach (int res in result1)
-        //        Console.Write(res + " ");
-
-        //    var result2 = solution(new int[] { 1, 2, 3, 4 }, 4, 6); // 0
-        //    foreach (int res in result2)
-        //        Console.Write(res + " ");
-
-        //    var result3 = solution(new int[] { 6, 1 }, 1, 1); // 0
-        //    foreach (int res in result3)
-        //        Console.Write(res + " ");
-        //}
-
-        //public static int[] solution(int[] A, int F, int M)
-        //{
-        //    int rolled = A.Length + F;
-        //    int totalSum = rolled * M;
-
-        //    int remaining = totalSum - GetTotal(A);
-        //    int max = F * 6;
-
-        //    if (remaining > max || remaining < 1)
-        //        return new int[] { 0 };
-
-        //    return GetResult(remaining);
-        //}
-
-        //private static int[] GetResult(int remaining)
-        //{
-        //    var result = new List<int>();
-        //    while (remaining > 0)
-        //    {
-        //        if (remaining >= 6)
-        //        {
-        //            result.Add(6);
-        //            remaining -= 6;
-        //        }
-        //        else
-        //        {
-        //            result.Add(1);
-        //            remaining--;
-        //        }
-        //    }
-
-        //    return result.ToArray();
-        //}
-
-        //private static int GetTotal(int[] A)
-        //{
-        //    int diceSum = 0;
-        //    foreach (int sum in A)
-        //    {
-        //        diceSum += sum;
-        //    }
-
-        //    return diceSum;
-        //}
 
         ////public static int[] getPossibleDiceRoll(int[] A, int F, int M)
         ////{
@@ -216,7 +121,6 @@ namespace POCConsole.Inter
         ////}
 
 
-        #endregion
 
         #region Third
         //static void Main(string[] args)

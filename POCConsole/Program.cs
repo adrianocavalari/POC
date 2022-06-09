@@ -6,9 +6,14 @@ using POCConsole.Course.DSA;
 using POCConsole.Course.MCI;
 using POCConsole.GarbageCollector;
 using POCConsole.Inter;
+using POCConsole.Inter.BaseAlgo;
 using POCConsole.Inter.BreadthFirstSearch;
 
 Console.WriteLine("Init...");
+
+#region BaseAlgo
+NextPermutation.Exec();
+#endregion
 
 #region Algorithms
 //NullObjectPattern.ExecuteBad();
@@ -43,7 +48,8 @@ Console.WriteLine("Init...");
 
 //new SolutionMergeSort().Exec();
 
-
+//Dijkstra.Exec();
+//TSP.Exec();
 #endregion
 
 #region Arrays
@@ -61,7 +67,8 @@ Console.WriteLine("Init...");
 
 //numbers.Print();
 
-//MSTest.Exec();
+//MissingBlock.Exec();
+//MissingRolls.Exec();
 //AliceAndBobApple.Exec();
 #endregion
 
@@ -104,7 +111,7 @@ Console.WriteLine("Init...");
 #endregion
 
 #region GarbageCollector
-GarbageCollectorCPF.Exec();
+//GarbageCollectorCPF.Exec();
 #endregion
 
 #region SlidingWindow
