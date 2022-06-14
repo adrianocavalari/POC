@@ -5,18 +5,18 @@
         public static void Exec()
         {
             var list = new List<int> { 1, 2, 3 };
-            FindNextPermutation(list).Dump();
+            FindNextPermutation(list).ToArray().DumpList();
         }
 
         // Function to find the next permutation
         // of the given integer array
-        public static bool FindNextPermutation(List<int> data)
+        public static List<int> FindNextPermutation(List<int> data)
         {
             // If the given dataset is empty
             // or contains only one element
             // next_permutation is not possible
             if (data.Count <= 1)
-                return false;
+                return data;
 
             int last = data.Count - 2;
 
@@ -34,7 +34,7 @@
             // If there is no increasing pair
             // there is no higher order permutation
             if (last < 0)
-                return false;
+                return data;
 
             int nextGreater = data.Count - 1;
 
@@ -58,7 +58,7 @@
 
             // Return true as the
             // next_permutation is done
-            return true;
+            return data;
         }
 
         // Function to swap the data

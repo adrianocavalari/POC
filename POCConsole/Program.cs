@@ -8,11 +8,15 @@ using POCConsole.GarbageCollector;
 using POCConsole.Inter;
 using POCConsole.Inter.BaseAlgo;
 using POCConsole.Inter.BreadthFirstSearch;
+using POCConsole.Inter.BuySellStocks;
 
 Console.WriteLine("Init...");
 
 #region BaseAlgo
-NextPermutation.Exec();
+//NextPermutation.Exec();
+//RemoveDupKeepOrder.Exec();
+//Kadanes.Exec();
+//BinaryCalc.Exec();
 #endregion
 
 #region Algorithms
@@ -70,6 +74,14 @@ NextPermutation.Exec();
 //MissingBlock.Exec();
 //MissingRolls.Exec();
 //AliceAndBobApple.Exec();
+#endregion
+
+#region BuySellStocks
+//BS1.Exec();
+#endregion
+
+#region Graph
+NumIslands.Exec();
 #endregion
 
 #region Course

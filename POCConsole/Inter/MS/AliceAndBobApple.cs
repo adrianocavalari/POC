@@ -8,17 +8,34 @@ namespace POCConsole.Inter
     {
         public static void Exec()
         {
-            solution(new[] { 6, 1, 4, 6, 3, 2, 7, 4 }, 3, 2)
-                .Dump()
-            .ShouldBe(24);
+            //maxSumTwoNoOverlap(new[] { 6, 1, 4, 6, 3, 2, 7, 4 }, 3, 2)
+            //    .Dump()
+            //.ShouldBe(24);
 
-            solution(new[] { 15, 35, 6, 1, 4, 6, 3, 2, 7, 4, 20, 30, 50 }, 3, 2)
-                .Dump()
-            .ShouldBe(150);
-
-            solution(new[] { 6, 1, 15, 35, 4, 4, 20, 30, 50, 6, 3, 2, 7 }, 5, 4)
-                .Dump();
+            //maxSumTwoNoOverlap(new[] { 15, 35, 6, 1, 4, 6, 3, 2, 7, 4, 20, 30, 50 }, 3, 2)
+            //    .Dump()
             //.ShouldBe(150);
+
+            /*
+                0, 6, 7, 22, 57, 61, 65, 85, 115, 165, 171, 174, 176, 183
+                |----------------|-----------------|
+                   |-----------------|-----------------|
+	                  |------------------|-------------------|
+		                  |------------------|-------------------|
+		                      |--------------------|------------------|
+	
+                0, 6, 7, 22, 57, 61, 65, 85, 115, 165, 171, 174, 176, 183	
+                |------------|---------------------|
+                   |-------------|---------------------|
+	                  |--------------|-----------------------|
+		                  |--------------|-----------------------|
+		                      |---------------|-----------------------|	
+             */
+            //maxSumTwoNoOverlap(new[] { 6, 1, 15, 35, 4, 4, 20, 30, 50, 6, 3, 2, 7 }, 5, 4)
+            //    .Dump()
+            //.ShouldBe(167);
+
+
 
             //int sum2 = solution(new[] { 10, 19, 15 }, 2, 2);
             //Console.WriteLine(sum2);
@@ -48,9 +65,68 @@ namespace POCConsole.Inter
             //Console.WriteLine(sum8);
             //sum8.ShouldBe(20);
 
-            //solution(new[] { 3, 2, 1, 4, 5, 6 }, 3, 2)
-            //    .Dump();
-            //.ShouldBe(20);
+            maxSumTwoNoOverlap(new[] { 3, 2, 1, 4, 5, 6 }, 3, 2)
+                .Dump()
+            .ShouldBe(20);
+        }
+
+        //Best with DP
+        static int maxSumTwoNoOverlap(int[] A, int L, int M)
+        {
+            int[] prefixSum = new int[A.Length + 1];
+            for (int i = 0; i < A.Length; ++i)
+            {
+                prefixSum[i + 1] = prefixSum[i] + A[i];
+            }
+
+            return Math.Max(MaxSum(prefixSum, L, M), MaxSum(prefixSum, M, L));
+        }
+
+        private static int MaxSum(int[] p, int L, int M)
+        {
+            // { 3, 2, 1, 4, 5, 6 }, 3, 2
+
+            //      0  1  2  3   4   5   6
+            // p = "0, 3, 5, 6, 10, 15, 21" Prefix sum
+            // First pass
+            //      |--------|-------|      = 6  - 0 + 15 - 6  = 15
+            //         |--------|-------|   = 10 - 3 + 21 - 10  = 18
+
+            // Second pass
+            // p = "0, 3, 5, 6, 10, 15, 21" Prefix sum
+            //      |-----|----------|      = 5 - 0 + 15 - 5 = 15
+            //         |-----|----------|   = 5     + 21 - 6 = 20
+
+            // Sum mid of L + M
+            // Left  = max of mid - left
+            // Right = max of left + right - mid
+
+            int maxR = 0;
+            int maxL = 0;
+
+            // i = 5
+            for (int i = L + M; i < p.Length; i++)
+            {
+                // p[5 - 2 = 3] =  6 - p[5 - 2 - 3 = 0] = 0  == 6  - 0 = 6
+                // p[6 - 2 = 4] = 10 - p[6 - 2 - 3 = 1] = 1  == 10 - 3 = 7
+                // mid      -       start
+                // 6  - 0 = 6
+                // 10 - 3 = 7
+
+                var mid = p[i - M];
+
+                maxL = Math.Max(maxL, mid - p[i - M - L]); // update max of L-length subarray.
+
+                // 6  + 15 - p[5 - 2 = 3] = 6   == 15
+                // 7  + 21 - p[6 - 2 = 4] = 10  == 21
+                // maxL      +       end     - mid
+                // 6  + 15 - 6   == 15
+                // 7  + 21 - 10  == 21
+
+                maxR = Math.Max(maxR, maxL + p[i] - mid); // update max of the sum of L-length & M-length subarrays.
+            }
+
+            return maxR;
         }
 
         static int solution(int[] A, int K, int L)
@@ -440,7 +516,6 @@ namespace POCConsole.Inter
             }
             return preSum[j] - preSum[i];
         }
-
     }
 }
 /*
