@@ -81,7 +81,7 @@ Console.WriteLine("Init...");
 #endregion
 
 #region Graph
-NumIslands.Exec();
+//NumIslands.Exec();
 #endregion
 
 #region Course
@@ -130,5 +130,14 @@ NumIslands.Exec();
 //SlidingWindow.Exec();
 #endregion
 
+#region Thread
+//MutexTest.Exec();
+//DeadLock.Exec();
+//DeadLockAccount.Exec();
+//DeadLockAccountMonitor.Exec();
+//DeadLockAccountMutex.Exec();
+//DeadLockAccountNestSameOrder.Exec();
+DeadLockAccountSemaphore.Exec();
+#endregion
 
 Console.Read();
