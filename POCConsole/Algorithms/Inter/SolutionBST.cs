@@ -1,4 +1,4 @@
-﻿namespace POCConsole
+﻿namespace POCConsole.Algorithms.Inter
 {
     public class Node
     {
@@ -8,9 +8,9 @@
 
         public Node(int key)
         {
-            this.data = key;
-            this.left = null;
-            this.right = null;
+            data = key;
+            left = null;
+            right = null;
         }
     }
 
