@@ -18,24 +18,27 @@ namespace POCConsole.ArrayTests
             var array5 = new[] { -10, -3, -100, -1000, -239, 1 };
             var array6 = new[] { 3, 1, 4, 5 };
             var array7 = new[] { 0, 1, 4, 5 };
+            var array8 = new[] { 1, 3, 6, 4, 1, 2 };
 
-            var a = FirstMissingPositive(array);    //4
-            var a2 = FirstMissingPositive(array2);  //1
-            var a3 = FirstMissingPositive(array3);  //2
-            var a4 = FirstMissingPositive(array4);  //1
-            var a5 = FirstMissingPositive(array5);  //2
-            var a6 = FirstMissingPositive(array6);  //2
-            var a7 = FirstMissingPositive(array7);  //1
+            //var a = FirstMissingPositive(array);    //4
+            //var a2 = FirstMissingPositive(array2);  //1
+            //var a3 = FirstMissingPositive(array3);  //2
+            //var a4 = FirstMissingPositive(array4);  //1
+            //var a5 = FirstMissingPositive(array5);  //2
+            //var a6 = FirstMissingPositive(array6);  //2
+            //var a7 = FirstMissingPositive(array7);  //1
+            var a8 = FirstMissingPositive(array8);     //5
 
             //var a = FirstMissingPositiveCyclicSort(array6);
 
-            a.ShouldBe(4);
-            a2.ShouldBe(1);
-            a3.ShouldBe(2);
-            a4.ShouldBe(1);
-            a5.ShouldBe(2);
-            a6.ShouldBe(2);
-            a7.ShouldBe(2);
+            //a.ShouldBe(4);
+            //a2.ShouldBe(1);
+            //a3.ShouldBe(2);
+            //a4.ShouldBe(1);
+            //a5.ShouldBe(2);
+            //a6.ShouldBe(2);
+            //a7.ShouldBe(2);
+            a8.ShouldBe(5);
         }
 
         static void Merge(int[] nums1, int m, int[] nums2, int n)

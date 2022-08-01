@@ -2,7 +2,6 @@
 {
     public class SolutionMergeSort
     {
-        //Function to check whether a Binary Tree is BST or not.
         public static void Exec()
         {
             Console.WriteLine(string.Join(", ", MergeSort(new[] { 38, 27, 43, 3, 9, 82, 10 })));

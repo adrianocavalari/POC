@@ -8,16 +8,50 @@ namespace POCConsole.Course.MCI
     {
         public static void Exec()
         {
-            QuickSortExec(
+            QuickSortExec2(
                 new[] { 99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0 })
                 .DumpList()
                 .ShouldBe(new[] { 0, 1, 2, 4, 5, 6, 44, 63, 87, 99, 283 });
         }
 
-        private static int[] QuickSortExec(int[] array)
+        private static int[] QuickSortExec2(int[] array)
         {
-            //return Sort(array, 0, array.Length - 1);
-            return SortWithPartition(array, 0, array.Length - 1);
+            return Sort2(array, 0, array.Length-1);
+        }
+
+        public static int[] Sort2(int[] array, int low, int high)
+        {
+            var i = low;
+            var j = high;
+            var pivot = array[low];
+
+            while(i <= j)
+            {
+                while (array[i] < pivot)
+                {
+                    i++;
+                }
+
+                while (array[j] > pivot)
+                {
+                    j--;
+                }
+
+                if (i <= j)
+                {
+                    (array[i], array[j]) = (array[j], array[i]);
+                    i++;
+                    j--;
+                }
+            }
+
+            if (low < j)
+                Sort2(array, low, j);
+            
+            if(i < high)
+                Sort2(array, i, high);
+
+            return array;
         }
 
         public static int[] Sort(int[] array, int leftIndex, int rightIndex)
@@ -50,6 +84,12 @@ namespace POCConsole.Course.MCI
             if (i < rightIndex)
                 Sort(array, i, rightIndex);
             return array;
+        }
+
+        private static int[] QuickSortExec(int[] array)
+        {
+            //return Sort(array, 0, array.Length - 1);
+            return SortWithPartition(array, 0, array.Length - 1);
         }
 
         static int[] SortWithPartition(int[] array, int low, int high)

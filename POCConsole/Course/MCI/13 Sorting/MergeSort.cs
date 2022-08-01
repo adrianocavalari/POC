@@ -67,7 +67,7 @@ namespace POCConsole.Course.MCI
                 place++;
             }
 
-            
+
             return res;
         }
     }

@@ -54,6 +54,9 @@ Console.WriteLine("Init...");
 
 //Dijkstra.Exec();
 //TSP.Exec();
+//NChooseK.Exec();
+
+//Palindrome.Exec();
 #endregion
 
 #region Arrays
@@ -107,7 +110,7 @@ Console.WriteLine("Init...");
 #endregion
 
 #region Find in array
-//TestCode.Exec();
+TestCode.Exec();
 #endregion
 
 #region LinkedList
@@ -128,6 +131,7 @@ Console.WriteLine("Init...");
 
 #region SlidingWindow
 //SlidingWindow.Exec();
+//SlidingWindow.Exec();
 #endregion
 
 #region Thread
@@ -137,7 +141,9 @@ Console.WriteLine("Init...");
 //DeadLockAccountMonitor.Exec();
 //DeadLockAccountMutex.Exec();
 //DeadLockAccountNestSameOrder.Exec();
-DeadLockAccountSemaphore.Exec();
+//DeadLockAccountSemaphore.Exec();
 #endregion
+
+Console.WriteLine("End...");
 
 Console.Read();
