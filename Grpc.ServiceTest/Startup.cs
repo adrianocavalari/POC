@@ -1,4 +1,4 @@
-﻿using GrpcService1.Services;
+﻿using Grpc.ServiceTest.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ProtoBuf.Grpc.Server;
 
-namespace GrpcService1
+namespace Grpc.ServiceTest
 {
     public class Startup
     {
@@ -32,7 +32,7 @@ namespace GrpcService1
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGrpcService<GreeterService>();
-                endpoints.MapGrpcService<GreeterService2>();
+                endpoints.MapGrpcService<GreeterServiceCoded>();
 
                 if (env.IsDevelopment())
                 {

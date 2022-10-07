@@ -1,10 +1,10 @@
-﻿using GrpcService1.Contracts;
+﻿using Grpc.ServiceTest.Contracts;
 using ProtoBuf.Grpc;
 using System.Threading.Tasks;
 
-namespace GrpcService1.Services
+namespace Grpc.ServiceTest.Services
 {
-    public class GreeterService2 : IGreeterService2
+    public class GreeterServiceCoded : IGreeterServiceCoded
     {
         public Task<Contracts.HelloReply> SayHelloAsync(Contracts.HelloRequest request, CallContext context = default)
         {

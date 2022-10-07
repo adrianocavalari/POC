@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Threading.Tasks;
 
-namespace GrpcService1.Contracts
+namespace Grpc.ServiceTest.Contracts
 {
     [DataContract]
     public class HelloReply
@@ -20,7 +20,7 @@ namespace GrpcService1.Contracts
     }
 
     [ServiceContract]
-    public interface IGreeterService2
+    public interface IGreeterServiceCoded
     {
         [OperationContract]
         Task<HelloReply> SayHelloAsync(HelloRequest request,
